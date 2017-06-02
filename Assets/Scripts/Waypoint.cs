@@ -18,6 +18,7 @@ public class Waypoint : MonoBehaviour
 	}
 
 	[SerializeField]
+	public GameObject cameraHolder;
 	private State  		_state					= State.Idle;
 	private Color		_color_origional		= new Color(0.0f, 1.0f, 0.0f, 0.5f);
 	private Color		_color					= Color.white;
@@ -65,7 +66,7 @@ public class Waypoint : MonoBehaviour
 
 	void Update()
 	{
-		bool occupied 	= Camera.main.transform.position == gameObject.transform.position;
+		bool occupied 	= cameraHolder.transform.position == gameObject.transform.position;
 
 		switch(_state)
 		{
@@ -130,7 +131,7 @@ public class Waypoint : MonoBehaviour
 
 		_audio_source.Play();
 
-		Camera.main.transform.position 	= gameObject.transform.position;
+		cameraHolder.transform.position 	= gameObject.transform.position;
 	}
 
 
